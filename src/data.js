@@ -201,6 +201,7 @@ export const projects = [
   },
   {
     title: 'ARTevo',
+    featured: true,
     desc: {
       az: 'Rəssam və sənətkarların əsərlərini satdığı, alıcıların kəşf edib aldığı sosial marketplace. ARTevo-da part-time frontend developer kimi hazırlayıram — öz domenində (artevo.az) işləyir.',
       en: 'A social marketplace where artists and makers sell their work and buyers discover and buy it. I build it as a part-time frontend developer at ARTevo — live on its own domain (artevo.az).',
@@ -297,7 +298,7 @@ export const t = {
     about: [
       'Bakı Mühəndislik Universitetində Kompüter mühəndisliyi oxuyuram. Div Academy-də Frontend Development təhsilimi "Gələcəyi Yazanlar" təqaüdü ilə keçdim və 1-ci dərəcəli diplomla bitirdim.',
       'AZCON Holding-in "Rəqəmsal Körpü" proqramına 1600 müraciətçi arasından seçildim, ASCO-nun IT departamentində frontend təcrübəçisi kimi çalışdım və proqramın sonunda iş təklifi aldım. Hazırda ASCO və ARTevo-da part-time frontend developer kimi işləyirəm.',
-      'İki əsas layihəm real istifadədədir: Zara Gənclik Mall işçiləri üçün daxili portal və öz domenində işləyən DırDır Anticafe saytı. Hazır dizaynı kopyalamaq asandır — mənə maraqlı olan onun arxasındakı məntiqi düzgün qurmaqdır.',
+      'Üç əsas layihəm real istifadədədir: Zara Gənclik Mall işçiləri üçün daxili portal, öz domenində işləyən DırDır Anticafe saytı və rəssamlar üçün ARTevo marketplace-i (artevo.az). Hazır dizaynı kopyalamaq asandır — mənə maraqlı olan onun arxasındakı məntiqi düzgün qurmaqdır.',
     ],
     statReal: 'real istifadədə olan layihə',
     statDiploma: 'dərəcəli diplom — Div Academy',
@@ -349,7 +350,7 @@ export const t = {
     about: [
       'I study Computer Engineering at Baku Engineering University. I completed the Div Academy Frontend Development program on the "Gələcəyi Yazanlar" scholarship and graduated with a diploma with distinction.',
       'I was selected from 1,600 applicants for AZCON Holding\'s "Digital Bridge" program, worked as a frontend intern in the ASCO IT department and received a job offer at the end. I currently work part-time as a frontend developer at ASCO and ARTevo.',
-      'My two main projects are in real use: an internal staff portal for Zara Ganjlik Mall and the DırDır Anticafe site on its own domain. Copying a design is easy — what I enjoy is building the logic behind it properly.',
+      'My three main projects are in real use: an internal staff portal for Zara Ganjlik Mall, the DırDır Anticafe site on its own domain and the ARTevo marketplace for artists (artevo.az). Copying a design is easy — what I enjoy is building the logic behind it properly.',
     ],
     statReal: 'projects in real use',
     statDiploma: 'class diploma — Div Academy',

@@ -16,13 +16,13 @@ export function Section({ id, title, children }) {
   )
 }
 
-export function ProjectCard({ p }) {
+export function ProjectCard({ p, className = '' }) {
   const { lang, tr } = useLang()
   return (
     <article
       className={`glow-card group relative flex flex-col rounded-card border border-line bg-surface p-6 backdrop-blur-sm transition hover:-translate-y-1 hover:border-primary/40 ${
         p.featured ? 'border-primary/20 lg:p-8' : ''
-      }`}
+      } ${className}`}
     >
       {p.featured && (
         <span className="mb-3 w-fit rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary-text">

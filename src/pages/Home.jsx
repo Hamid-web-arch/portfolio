@@ -67,8 +67,13 @@ export default function Home() {
       {/* projects */}
       <Section id="projects" title={tr.projectsTitle}>
         <div className="grid gap-6 lg:grid-cols-2">
-          {featured.map((p) => (
-            <ProjectCard key={p.title} p={p} />
+          {featured.map((p, i) => (
+            // tək sayda əsas layihə varsa, sonuncu kart geniş ekranda bütün sətri tutur
+            <ProjectCard
+              key={p.title}
+              p={p}
+              className={featured.length % 2 === 1 && i === featured.length - 1 ? 'lg:col-span-2' : ''}
+            />
           ))}
         </div>
         <h3 className="mb-6 mt-14 font-mono text-sm uppercase tracking-wider text-subtle">{tr.otherProjects}</h3>
