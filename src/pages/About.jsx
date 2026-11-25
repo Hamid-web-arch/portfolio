@@ -1,5 +1,5 @@
 import { certificates, education, experience, languages, profile, projects, skills, volunteering } from '../data'
-import { useLang } from '../components/lang'
+import { useLang } from '../components/context'
 import { BulletList, Card, Contact, Section } from '../components/ui'
 import { useReveal } from '../components/useReveal'
 
@@ -53,6 +53,9 @@ export default function About() {
           <img
             src={profile.avatar}
             alt={profile.name}
+            width={176}
+            height={176}
+            decoding="async"
             className="h-36 w-36 rounded-3xl border-4 border-line object-cover sm:h-44 sm:w-44"
           />
           <div>
@@ -122,7 +125,7 @@ export default function About() {
         </div>
         <Card className="mt-6">
           <h3 className="mb-4 font-mono text-sm uppercase tracking-wider text-primary-text">
-            {tr.skillsoftTitle} · 2026
+            {tr.skillsoftTitle} · {certificates.skillsoftYear}
           </h3>
           <ul className="grid gap-x-8 gap-y-2 text-sm text-fg-soft sm:grid-cols-2">
             {certificates.skillsoft.map((c) => (

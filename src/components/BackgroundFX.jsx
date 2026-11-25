@@ -12,15 +12,27 @@ export default function BackgroundFX() {
     if (!finePointer || reduceMotion) return
 
     const root = document.documentElement
-    const s = { tx: -1000, ty: -1000, x: -1000, y: -1000, raf: 0 }
+    const OFF = -1000
+    const s = { tx: OFF, ty: OFF, x: OFF, y: OFF, raf: 0, cardsQueued: false }
 
+    // Kartları kadr başına bir dəfə yeniləyirik: əvvəl bütün ölçüləri OXUYURUQ,
+    // sonra YAZIRIQ — beləcə brauzer hər kart üçün layout-u təkrar hesablamır.
     const updateCards = () => {
-      document.querySelectorAll('.glow-card').forEach((el) => {
-        const r = el.getBoundingClientRect()
-        if (r.bottom < -200 || r.top > window.innerHeight + 200) return
+      s.cardsQueued = false
+      const cards = document.querySelectorAll('.glow-card')
+      const vh = window.innerHeight
+      const rects = Array.from(cards, (el) => el.getBoundingClientRect())
+      cards.forEach((el, i) => {
+        const r = rects[i]
+        if (r.bottom < -200 || r.top > vh + 200) return
         el.style.setProperty('--gx', `${s.tx - r.left}px`)
         el.style.setProperty('--gy', `${s.ty - r.top}px`)
       })
+    }
+    const queueCards = () => {
+      if (s.cardsQueued) return
+      s.cardsQueued = true
+      requestAnimationFrame(updateCards)
     }
 
     const tick = () => {
@@ -29,43 +41,40 @@ export default function BackgroundFX() {
       s.y += (s.ty - s.y) * 0.15
       root.style.setProperty('--mx', `${s.x}px`)
       root.style.setProperty('--my', `${s.y}px`)
-      if (Math.abs(s.tx - s.x) > 0.5 || Math.abs(s.ty - s.y) > 0.5) {
-        s.raf = requestAnimationFrame(tick)
-      } else {
-        s.raf = 0
-      }
+      s.raf = Math.abs(s.tx - s.x) > 0.5 || Math.abs(s.ty - s.y) > 0.5 ? requestAnimationFrame(tick) : 0
     }
 
     const onMove = (e) => {
-      if (s.x === -1000) {
+      if (s.x === OFF) {
         s.x = e.clientX
         s.y = e.clientY
       }
       s.tx = e.clientX
       s.ty = e.clientY
-      updateCards()
+      queueCards()
       if (!s.raf) s.raf = requestAnimationFrame(tick)
     }
 
-    const onLeave = () => {
-      s.tx = -1000
-      s.ty = -1000
-      s.x = -1000
-      s.y = -1000
-      root.style.setProperty('--mx', '-1000px')
-      root.style.setProperty('--my', '-1000px')
-      updateCards()
+    // Kursor pəncərədən çıxanda (relatedTarget === null) işığı gizlət
+    const onOut = (e) => {
+      if (e.relatedTarget) return
+      cancelAnimationFrame(s.raf)
+      s.raf = 0
+      s.tx = s.ty = s.x = s.y = OFF
+      root.style.setProperty('--mx', `${OFF}px`)
+      root.style.setProperty('--my', `${OFF}px`)
+      queueCards()
     }
 
     window.addEventListener('pointermove', onMove, { passive: true })
-    window.addEventListener('scroll', updateCards, { passive: true })
-    document.addEventListener('pointerleave', onLeave)
+    window.addEventListener('scroll', queueCards, { passive: true })
+    window.addEventListener('pointerout', onOut)
 
     return () => {
       cancelAnimationFrame(s.raf)
       window.removeEventListener('pointermove', onMove)
-      window.removeEventListener('scroll', updateCards)
-      document.removeEventListener('pointerleave', onLeave)
+      window.removeEventListener('scroll', queueCards)
+      window.removeEventListener('pointerout', onOut)
     }
   }, [])
 

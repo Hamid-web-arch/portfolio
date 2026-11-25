@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
-import './App.css'
 import Layout from './components/Layout'
-import { AppContext, useLang } from './components/lang'
+import { AppContext, useLang } from './components/context'
+import { t } from './data'
 import Home from './pages/Home'
 import About from './pages/About'
 
@@ -41,16 +41,21 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.lang = lang
+    document.title = t[lang].metaTitle
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t[lang].metaDescription)
     save('lang', lang)
   }, [lang])
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0b0f17' : '#f8fafc')
     save('theme', theme)
   }, [theme])
 
+  const ctx = useMemo(() => ({ lang, setLang, theme, setTheme }), [lang, theme])
+
   return (
-    <AppContext.Provider value={{ lang, setLang, theme, setTheme }}>
+    <AppContext.Provider value={ctx}>
       <BrowserRouter>
         <Routes>
           <Route element={<Layout />}>

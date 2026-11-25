@@ -70,7 +70,7 @@ export const education = [
     points: { az: [], en: [] },
   },
   {
-    title: { az: 'Frontend Development — 1-ci dərəcəli diplom', en: 'Frontend Development — Diploma with distinction' },
+    title: { az: 'Frontend Development — 1-ci dərəcəli diplom', en: 'Frontend Development — First-class diploma' },
     org: { az: 'Div Academy', en: 'Div Academy' },
     period: { az: 'Noyabr 2025 — İyul 2026', en: 'Nov 2025 — Jul 2026' },
     points: {
@@ -104,6 +104,7 @@ export const education = [
 ]
 
 export const certificates = {
+  skillsoftYear: 2026,
   main: [
     { name: '"Rəqəmsal Körpü" (Digital Bridge) Summer Internship', org: 'AZCON Holding', date: '09.2026' },
     { name: 'Certificate of Appreciation — Formula 1 Azerbaijan Grand Prix 2026', org: 'Baku City Circuit', date: '09.2026' },
@@ -199,6 +200,15 @@ export const projects = [
     code: 'https://github.com/Hamid-web-arch/dirdir-anticafe',
   },
   {
+    title: 'ARTevo',
+    desc: {
+      az: 'Rəssam və sənətkarların əsərlərini satdığı, alıcıların kəşf edib aldığı sosial marketplace. ARTevo-da part-time frontend developer kimi hazırlayıram — öz domenində (artevo.az) işləyir.',
+      en: 'A social marketplace where artists and makers sell their work and buyers discover and buy it. I build it as a part-time frontend developer at ARTevo — live on its own domain (artevo.az).',
+    },
+    tags: ['React', 'TanStack Query', 'Vite'],
+    live: 'https://artevo.az',
+  },
+  {
     title: 'PUMA Store Clone',
     desc: {
       az: 'Div Academy final layihəsi: çoxsəhifəli onlayn mağaza — filtrlər, axtarış, səbət, istək siyahısı və istifadəçi kabineti.',
@@ -207,16 +217,6 @@ export const projects = [
     tags: ['React 19', 'React Router', 'Tailwind 4', 'Swiper'],
     live: 'https://hamid-web-arch.github.io/puma-clone/',
     code: 'https://github.com/Hamid-web-arch/puma-clone',
-  },
-  {
-    title: 'Artevo',
-    desc: {
-      az: 'ARTevo-da part-time frontend developer kimi hazırladığım incəsənət platforması.',
-      en: 'An art platform I build as a part-time frontend developer at ARTevo.',
-    },
-    tags: ['React', 'JavaScript', 'Vercel'],
-    live: 'https://artevo-app.vercel.app',
-    code: 'https://github.com/Hamid-web-arch/Art',
   },
   {
     title: 'ABB Website Clone',
@@ -322,6 +322,16 @@ export const t = {
     rights: 'Bütün hüquqlar qorunur.',
     notFound: 'Səhifə tapılmadı',
     backHome: 'Ana səhifəyə qayıt',
+    privateCode: 'Kod bağlıdır',
+    skip: 'Əsas məzmuna keç',
+    navLabel: 'Əsas menyu',
+    switchLang: 'Switch to English',
+    lightMode: 'Açıq tema',
+    darkMode: 'Qaranlıq tema',
+    menuOpen: 'Menyunu aç',
+    menuClose: 'Menyunu bağla',
+    metaTitle: 'Həmid Ağabəyov — Frontend Developer',
+    metaDescription: 'Həmid Ağabəyov — React, JavaScript və Tailwind CSS ilə işləyən frontend developer portfoliosu.',
   },
   en: {
     nav: { home: 'Home', projects: 'Projects', about: 'About', contact: 'Contact' },
@@ -364,5 +374,15 @@ export const t = {
     rights: 'All rights reserved.',
     notFound: 'Page not found',
     backHome: 'Back to home',
+    privateCode: 'Private code',
+    skip: 'Skip to main content',
+    navLabel: 'Main navigation',
+    switchLang: 'Azərbaycan dilinə keç',
+    lightMode: 'Light mode',
+    darkMode: 'Dark mode',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
+    metaTitle: 'Həmid Ağabəyov — Frontend Developer',
+    metaDescription: 'Portfolio of Həmid Ağabəyov — a frontend developer building with React, JavaScript and Tailwind CSS.',
   },
 }

@@ -1,5 +1,5 @@
 import { profile } from '../data'
-import { useLang } from './lang'
+import { useLang } from './context'
 import { ArrowIcon, GithubIcon, LinkedinIcon, MailIcon, WhatsappIcon } from './icons'
 
 export function Section({ id, title, children }) {
@@ -50,9 +50,13 @@ export function ProjectCard({ p }) {
             {tr.live} <ArrowIcon className="h-4 w-4" />
           </a>
         )}
-        <a href={p.code} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-fg-soft hover:text-fg">
-          <GithubIcon className="h-4 w-4" /> {tr.code}
-        </a>
+        {p.code ? (
+          <a href={p.code} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-fg-soft hover:text-fg">
+            <GithubIcon className="h-4 w-4" /> {tr.code}
+          </a>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 text-subtle">{tr.privateCode}</span>
+        )}
       </div>
     </article>
   )

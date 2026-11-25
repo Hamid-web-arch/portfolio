@@ -23,7 +23,7 @@
   --fg: #f1f5f9;                         /* əsas mətn, başlıqlar */
   --fg-soft: #cbd5e1;                    /* ikinci dərəcəli mətn */
   --muted: #94a3b8;                      /* təsvirlər, izahlar */
-  --subtle: #64748b;                     /* tarixlər, kiçik qeydlər */
+  --subtle: #74839a;                     /* tarixlər, kiçik qeydlər (fonda 5:1 kontrast — WCAG AA) */
 
   /* Xətlər / border */
   --line-soft: rgb(255 255 255 / 0.05);
@@ -118,6 +118,51 @@ body {
   color: var(--fg);
   font-family: var(--font-sans);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Klaviatura ilə gəzəndə fokus aydın görünsün */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Keçid linki: yalnız Tab ilə fokuslananda görünür */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-btn);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 600;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* ---------- Scroll ilə görünmə animasiyası ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* ---------- Kursor işığı ---------- */

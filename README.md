@@ -1,16 +1,38 @@
-# React + Vite
+# Həmid Ağabəyov — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio of a frontend developer: projects, experience, education and contact.
 
-Currently, two official plugins are available:
+**Live:** https://hamid-agabayov.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Two languages (AZ / EN) and light / dark theme, both remembered between visits
+- Cursor spotlight and glowing card edges (disabled on touch screens and with reduced motion)
+- Scroll-reveal sections, accessible navigation (skip link, keyboard focus, ARIA on the mobile menu)
+- Open Graph preview image for LinkedIn / WhatsApp / Telegram
+- Real 404 status on Vercel for unknown URLs
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the Oxlint configuration
+React 19 · React Router 7 · Tailwind CSS 4 · Vite 8 · Oxlint · Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Run locally
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build in dist/
+npm run lint
+```
+
+## Where things live
+
+| What | File |
+|---|---|
+| All content (projects, experience, translations) | `src/data.js` |
+| Colors, fonts and other design tokens | `src/index.css` |
+| Pages | `src/pages/Home.jsx`, `src/pages/About.jsx` |
+| Header, footer, scroll handling | `src/components/Layout.jsx` |
+| Social preview image | `public/og.png` |
+
+To add a project, append an object to `projects` in `src/data.js`. Set `featured: true` to show it as a large card, and leave out `code` if the repository is private.

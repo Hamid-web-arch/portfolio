@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { profile, projects } from '../data'
-import { useLang } from '../components/lang'
+import { useLang } from '../components/context'
 import { Contact, ProjectCard, Section } from '../components/ui'
 import { useReveal } from '../components/useReveal'
 import { ArrowIcon, GithubIcon, LinkedinIcon, MailIcon, WhatsappIcon } from '../components/icons'
@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <>
       {/* hero */}
-      <section className="mx-auto flex min-h-[calc(100vh-73px)] max-w-6xl flex-col-reverse items-center justify-center gap-12 px-4 py-16 sm:px-6 md:flex-row">
+      <section className="mx-auto flex min-h-[calc(100svh-72px)] max-w-6xl flex-col-reverse items-center justify-center gap-12 px-4 py-16 sm:px-6 md:flex-row">
         <div className="flex-1">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs text-primary-text">
             <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
@@ -55,6 +55,10 @@ export default function Home() {
           <img
             src={profile.avatar}
             alt={profile.name}
+            width={288}
+            height={288}
+            fetchPriority="high"
+            decoding="async"
             className="relative h-56 w-56 rounded-full border-4 border-line object-cover sm:h-72 sm:w-72"
           />
         </div>

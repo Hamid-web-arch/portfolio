@@ -2,18 +2,46 @@
 <html lang="az" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <script>
-      try { document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark' } catch (e) { document.documentElement.dataset.theme = 'dark' }
+      // Tema və dil React yüklənməzdən əvvəl tətbiq olunur (ekran yanıb-sönməsin)
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem('theme') || 'dark'
+        document.documentElement.lang = localStorage.getItem('lang') || 'az'
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark'
+      }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Həmid Ağabəyov — Frontend Developer</title>
     <meta name="description" content="Həmid Ağabəyov — React, JavaScript və Tailwind CSS ilə işləyən frontend developer portfoliosu." />
+    <meta name="author" content="Həmid Ağabəyov" />
+    <meta name="theme-color" content="#0b0f17" />
+    <link rel="canonical" href="https://hamid-agabayov.vercel.app/" />
+
+    <!-- Sosial şəbəkə önizləməsi (LinkedIn, WhatsApp, Telegram, X) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Həmid Ağabəyov" />
+    <meta property="og:url" content="https://hamid-agabayov.vercel.app/" />
+    <meta property="og:title" content="Həmid Ağabəyov — Frontend Developer" />
+    <meta property="og:description" content="React, JavaScript və Tailwind CSS ilə sürətli, responsive interfeyslər. Layihələr, təcrübə və əlaqə." />
+    <meta property="og:image" content="https://hamid-agabayov.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Həmid Ağabəyov — Frontend Developer" />
+    <meta property="og:locale" content="az_AZ" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Həmid Ağabəyov — Frontend Developer" />
+    <meta name="twitter:description" content="React, JavaScript və Tailwind CSS ilə sürətli, responsive interfeyslər." />
+    <meta name="twitter:image" content="https://hamid-agabayov.vercel.app/og.png" />
   </head>
   <body>
+    <noscript>Bu sayt JavaScript tələb edir. / This site requires JavaScript.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
