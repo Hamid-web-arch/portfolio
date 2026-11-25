@@ -154,9 +154,27 @@ body {
   transform: none;
 }
 
+/* Mini oyun: baq/feature görünəndə kiçik "pop" effekti */
+@keyframes bug-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.bug-pop {
+  animation: bug-pop 0.15s ease-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .bug-pop {
+    animation: none;
   }
   .reveal {
     opacity: 1;

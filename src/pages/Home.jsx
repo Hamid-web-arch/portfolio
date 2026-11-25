@@ -3,6 +3,7 @@ import { profile, projects } from '../data'
 import { useLang } from '../components/context'
 import { Contact, ProjectCard, Section } from '../components/ui'
 import { useReveal } from '../components/useReveal'
+import BugHunt from '../components/BugHunt'
 import { ArrowIcon, GithubIcon, LinkedinIcon, MailIcon, WhatsappIcon } from '../components/icons'
 
 const featured = projects.filter((p) => p.featured)
@@ -87,6 +88,11 @@ export default function Home() {
             <GithubIcon className="h-5 w-5" /> {tr.more} <ArrowIcon className="h-4 w-4" />
           </a>
         </div>
+      </Section>
+
+      {/* mini oyun */}
+      <Section id="play" title={tr.gameTitle}>
+        <BugHunt />
       </Section>
 
       <Contact />
